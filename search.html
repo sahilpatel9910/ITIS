@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Library Management System</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <h1>Library Management System</h1>
+                <ul class="nav-links">
+                    <!-- <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">New Arrivals</a></li> -->
+                    <li><a href="#">My Account</a></li>
+                    <li class="search-container">
+                        <form action="search.html" method="GET">
+                            <input type="text" name="query" placeholder="Search for books">
+                            <button type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="search-results">
+                <h2>Search Results for: <span id="search-query"></span></h2>
+                <div id="results-container">
+                    <!-- Search results will be dynamically injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+    <script>
+        // Get the search query from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+
+        // Display the search query on the page
+        document.getElementById('search-query').textContent = query;
+
+        // Example function to display search results
+        function displaySearchResults(query) {
+            // This function should be replaced with actual search functionality
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = `
+                <div class="book-card">
+                    <img src="placeholder.png" alt="Book Image">
+                    <h3>Book Title Matching "${query}"</h3>
+                    <p>Book description goes here. This is a placeholder description for the book matching the search query "${query}".</p>
+                    <button>More Info</button>
+                    <a href="#">Read More ></a>
+                </div>
+            `;
+        }
+
+        // Call the function to display search results
+        displaySearchResults(query);
+    </script>
+</body>
+</html>
